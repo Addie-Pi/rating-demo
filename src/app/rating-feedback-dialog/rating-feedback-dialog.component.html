@@ -1,0 +1,27 @@
+<h2 mat-dialog-title>How was the experience?</h2>
+<mat-dialog-content>
+  <div class="star-container">
+    <ng-container *ngFor="let star of stars; let i = index">
+      <mat-icon
+        class="star"
+        [ngStyle]="{
+          color: (hover() >= i + 1 || rating() >= i + 1) ? '#ffc107' : '#e4e5e9'
+        }"
+        (mouseenter)="setHover(i + 1)"
+        (mouseleave)="setHover(0)"
+        (click)="setRating(i + 1)"
+        >star</mat-icon>
+    </ng-container>
+  </div>
+
+  <mat-form-field appearance="outline" class="comments-field">
+    <mat-label>Leave some comments...</mat-label>
+    <textarea matInput rows="3" [(ngModel)]="feedback"></textarea>
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onNoClick()">No, thanks</button>
+  <button mat-raised-button color="primary" [disabled]="rating() === 0" (click)="submit()">
+    Submit
+  </button>
+</mat-dialog-actions>

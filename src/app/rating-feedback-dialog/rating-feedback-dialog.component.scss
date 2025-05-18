@@ -1,0 +1,22 @@
+.star-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+  
+.star {
+    font-size: 36px;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+  
+.comments-field {
+    width: 100%;
+}
+
+mat-icon{
+    height: inherit;
+    width: inherit;
+}
+
+  
